@@ -12,14 +12,14 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *finishedButton;
 
--(void)saveToDefaults:(NSString *)learned;
-
 @end
 
 @implementation PageContentViewController
 
 - (IBAction)finished:(id)sender {
-    [self saveToDefaults:@"learned"];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:@"learned"];
 }
 
 - (void)viewDidLoad {
@@ -39,13 +39,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
--(void)saveToDefaults:(NSString *)learned {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:learned forKey:@"learned"];
-}
-
 
 #pragma mark - Navigation
 /*

@@ -64,15 +64,10 @@
 
 }
 -(void)viewWillAppear:(BOOL)animated {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *chosenGender = [defaults objectForKey:@"chosenGender"];
-    
-    NSLog(@"Loading with default %@", chosenGender);
-    
+     
     if (!self.profilesArray) {
         
-        [self updateGender:chosenGender];
+        [self updateGender:_selectedGender];
     }
 }
 
@@ -85,9 +80,6 @@
 
 - (void)updateGender:(NSString *)chosenGender {
     [self shouldAnimateIndicator:YES];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:chosenGender forKey:@"chosenGender"];
     
     __weak typeof(self) weakSelf = self;
     

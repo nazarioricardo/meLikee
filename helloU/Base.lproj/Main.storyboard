@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oab-S8-xsa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="oab-S8-xsa">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -100,6 +100,12 @@
                                     <segue destination="oab-S8-xsa" kind="presentation" id="1qV-5Y-JIk"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Illustrations coming soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75l-VC-hZF">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -113,6 +119,8 @@
                             <constraint firstItem="Zum-I1-0sa" firstAttribute="centerX" secondItem="xa5-za-iuS" secondAttribute="centerX" id="aow-Uw-GaV"/>
                             <constraint firstItem="J12-la-DTV" firstAttribute="top" secondItem="Tou-U8-DDF" secondAttribute="bottom" constant="8" id="iNT-UR-Jft"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Zum-I1-0sa" secondAttribute="trailing" id="iPb-lA-Hii"/>
+                            <constraint firstItem="75l-VC-hZF" firstAttribute="centerX" secondItem="J12-la-DTV" secondAttribute="centerX" id="vD7-j8-hLH"/>
+                            <constraint firstItem="75l-VC-hZF" firstAttribute="centerY" secondItem="Tou-U8-DDF" secondAttribute="centerY" id="wdM-dd-bIt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="J12-la-DTV" secondAttribute="trailing" id="yib-YC-4PC"/>
                         </constraints>
                         <variation key="default">
@@ -121,17 +129,20 @@
                                 <exclude reference="J12-la-DTV"/>
                                 <exclude reference="Tou-U8-DDF"/>
                                 <exclude reference="J7e-io-Gvk"/>
+                                <exclude reference="75l-VC-hZF"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Iam-9J-HKM"/>
-                                <exclude reference="iNT-UR-Jft"/>
-                                <exclude reference="yib-YC-4PC"/>
                                 <exclude reference="FvY-ln-Q9A"/>
                                 <exclude reference="S0O-Kd-dCq"/>
                                 <exclude reference="aow-Uw-GaV"/>
                                 <exclude reference="iPb-lA-Hii"/>
                                 <exclude reference="Cuc-Is-hXm"/>
                                 <exclude reference="NlZ-xv-VFr"/>
+                                <exclude reference="vD7-j8-hLH"/>
+                                <exclude reference="wdM-dd-bIt"/>
+                                <exclude reference="Iam-9J-HKM"/>
+                                <exclude reference="iNT-UR-Jft"/>
+                                <exclude reference="yib-YC-4PC"/>
                                 <exclude reference="1py-Mb-Ozd"/>
                                 <exclude reference="5Xk-Yo-oYK"/>
                             </mask>
@@ -142,17 +153,20 @@
                                 <include reference="J12-la-DTV"/>
                                 <include reference="Tou-U8-DDF"/>
                                 <include reference="J7e-io-Gvk"/>
+                                <include reference="75l-VC-hZF"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Iam-9J-HKM"/>
-                                <include reference="iNT-UR-Jft"/>
-                                <include reference="yib-YC-4PC"/>
                                 <include reference="FvY-ln-Q9A"/>
                                 <include reference="S0O-Kd-dCq"/>
                                 <include reference="aow-Uw-GaV"/>
                                 <include reference="iPb-lA-Hii"/>
                                 <include reference="Cuc-Is-hXm"/>
                                 <include reference="NlZ-xv-VFr"/>
+                                <include reference="vD7-j8-hLH"/>
+                                <include reference="wdM-dd-bIt"/>
+                                <include reference="Iam-9J-HKM"/>
+                                <include reference="iNT-UR-Jft"/>
+                                <include reference="yib-YC-4PC"/>
                                 <include reference="1py-Mb-Ozd"/>
                                 <include reference="5Xk-Yo-oYK"/>
                             </mask>
@@ -410,6 +424,7 @@
                         <outlet property="femaleButton" destination="pFB-rh-Zj4" id="Nzi-fl-5ZD"/>
                         <outlet property="maleButton" destination="9yP-qA-N9S" id="uaF-L1-uVM"/>
                         <outlet property="skipTutorial" destination="ZBi-W6-veZ" id="zas-8R-DQB"/>
+                        <outlet property="welcomeLabel" destination="TnF-FN-Gne" id="upP-qW-6qF"/>
                         <segue destination="HSo-eS-MTf" kind="presentation" identifier="HelloSegue" modalTransitionStyle="crossDissolve" id="2Gg-kt-Ngl"/>
                         <segue destination="SWi-Id-Uag" kind="presentation" identifier="TutorialSegue" id="vrY-Qa-gup"/>
                     </connections>

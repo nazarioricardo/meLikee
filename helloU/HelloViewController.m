@@ -17,14 +17,15 @@
 @property (weak, nonatomic) IBOutlet UIButton *femaleButton;
 @property (weak, nonatomic) IBOutlet UIButton *maleButton;
 @property (weak, nonatomic) IBOutlet UIButton *skipTutorial;
+@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
 
 @property (nonatomic) NSString *gender;
-
--(void)saveToDefaults:(NSString *)chosenGender;
 
 @end
 
 @implementation HelloViewController
+
+#pragma mark - Actions
 
 - (IBAction)genderSelected:(id)sender {
 
@@ -34,8 +35,6 @@
         self.gender = @"Male";
     }
     
-    [self saveToDefaults:self.gender];
-    
     [self performSegueWithIdentifier:@"HelloSegue" sender:self];
     
 }
@@ -43,8 +42,14 @@
 - (IBAction)skipTutorial:(id)sender {
     
     [self.pageViewController.view removeFromSuperview];
-    [self saveToDefaults:@"learned"];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:@"learned"];
+    
     self.skipTutorial.hidden = YES;
+    self.welcomeLabel.hidden = NO;
+    self.maleButton.hidden = NO;
+    self.femaleButton.hidden = NO;
 }
 
 - (IBAction)tutorial:(id)sender {
@@ -64,8 +69,12 @@
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
     
+    [self pageViewControllerIsPresent:_pageViewController];
+    
     self.skipTutorial.hidden = NO;
 }
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -80,10 +89,12 @@
     self.pageInstructions = @[@"Turn the page to learn how to use the first offline online dating app!", @"Choose what gender you want to be. You can change later, we are gender fluid!", @"Find the match of your dreams! (That is, who you dream of being.)", @"Present your phone to any hotty that is physically near you, and let us do the talking ;).", @"You lucky ducky!"];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
     NSString *learned = [defaults objectForKey:@"learned"];
     
     if (!learned) {
+        
+        [self pageViewControllerIsPresent:_pageViewController];
+
         
         //Create page view controller
         self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
@@ -99,34 +110,22 @@
         [self addChildViewController:_pageViewController];
         [self.view addSubview:_pageViewController.view];
         [self.pageViewController didMoveToParentViewController:self];
+        
+        [self pageViewControllerIsPresent:self.pageViewController];
+        
     } else {
         self.skipTutorial.hidden = YES;
     }
-    
-    
 
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     
-    NSLog(@"HelloViewController did appear");
-    
-    [self saveToDefaults:nil];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSString *chosenGender = [defaults objectForKey:@"chosenGender"];
-    NSLog(@"Loading with default %@", chosenGender);
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)saveToDefaults:(NSString *)chosenGender {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:chosenGender forKey:@"chosenGender"];
 }
 
 #pragma mark - Navigation
@@ -139,6 +138,18 @@
     
     // Pass the selected object to the new view controller.
     [upvc setSelectedGender:self.gender];
+}
+
+- (void)pageViewControllerIsPresent:(UIViewController *)pageVC {
+    
+    if (pageVC.isViewLoaded && pageVC.view.window) {
+        self.welcomeLabel.hidden = YES;
+        self.maleButton.hidden = YES;
+        self.femaleButton.hidden = YES;
+        NSLog(@"Page controller is visible");
+    }
+    
+   
 }
 
 #pragma mark - PageView Controller Data Source

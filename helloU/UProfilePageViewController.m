@@ -30,6 +30,9 @@
 @end
 
 @implementation UProfilePageViewController
+
+#pragma mark - IBActions
+
 - (IBAction)segmentChosen:(id)sender {
     
     long level = (long)self.levelSelector.selectedSegmentIndex;
@@ -51,6 +54,8 @@
 - (IBAction)stopButtonPressed:(id)sender {
     [self.audioPlayer stop];
 }
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -75,12 +80,16 @@
     self.stopButton.layer.cornerRadius = self.stopButton.frame.size.height/2;
     
     self.levelSelector.layer.cornerRadius = self.levelSelector.frame.size.height/2;
-
     
 }
 
 -(void)viewWillAppear:(BOOL)animated {
     [self setUpAudio];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Private
@@ -204,11 +213,6 @@
         [self.indicatorView stopAnimating];
     }
     self.view.userInteractionEnabled = !animate;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*
