@@ -6,9 +6,7 @@ It is currently in beta-testing, so if you'd like to try it, email me! nazariori
 Because it's healthy to step back and laugh sometimes!
 
 ## But really, why?
-I decided to make meLikee as a challenge to myself to code some features that I didn't know how to code. I was able to
-design a database and learned how to download audio and image files from a server and present them cleanly and reliable
-in the app.
+I decided to make meLikee as a challenge to myself. I took myself out of my comfort zone by coming up with an app--with some help from my friends--that wasn't limited by what I already knew I could make. Instead, building meLikee forced me to learn some useful skills. Like how to design a database and  how to download audio and image files from a server and present them cleanly and reliably on an iPhone. And because the app is a parody, I didn't have to worry about coming up with something that is useful in a concrete way.
 
 ## What kind of code can I find here?
 If you're looking to gain insight on how to manage database information using structs with Objective-C try checking out the
