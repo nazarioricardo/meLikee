@@ -18,3 +18,6 @@ that returns only the count of a record type, nor a method that fetches a random
 Other than that it is all pretty standard!
 
 https://youtu.be/s1JPEb5pYt4
+
+## What's coming up next?
+The one thing I would love to improve from meLikee is the download algorithm for presenting profiles in the collection view. I will need to make the profile images their own record in the Cloudkit database, so that profile names and images are downloaded individually.
