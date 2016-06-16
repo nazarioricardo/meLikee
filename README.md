@@ -14,7 +14,8 @@ in the app.
 If you're looking to gain insight on how to manage database information using structs with Objective-C try checking out the
 code in the models folder of the Xcode workspace.
 
-I developed a query that finds the number of records in a record type, something for which Cloudkit's API doesn't have a method.
+There are some useful Cloudkit methods in the CloudkitManager singleton in the controls folder. Such as an algorithm that finds the number of records from a record type in order to fetch a random record. Cloudkit doesn't currently have a method 
+that returns only the count of a record type, nor a method that fetches a random record.
 
 Other than that it is all pretty standard!
 
