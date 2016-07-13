@@ -10,17 +10,9 @@
 
 @interface PageContentViewController ()
 
-@property (weak, nonatomic) IBOutlet UIButton *finishedButton;
-
 @end
 
 @implementation PageContentViewController
-
-- (IBAction)finished:(id)sender {
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:YES forKey:@"learned"];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,11 +20,7 @@
     //self.backgroundImageView.image = [UIImage imageNamed:self.imageFile];
     self.titleLabel.text = self.titleText;
     self.textLabel.text = self.instructionText;
-    self.finishedButton.hidden = YES;
     
-    if (self.pageIndex == 4) {
-        self.finishedButton.hidden = NO;
-    }
 }
 
 - (void)didReceiveMemoryWarning {
