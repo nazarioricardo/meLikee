@@ -27,6 +27,7 @@
 
 #pragma mark - Public
 
+
 -(void)setProfile:(Profile *)profile {
     self.nameLabel.text = profile.name;
 

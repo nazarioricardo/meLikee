@@ -39,19 +39,6 @@
     
 }
 
-- (IBAction)skipTutorial:(id)sender {
-    
-    [self.pageViewController.view removeFromSuperview];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setBool:YES forKey:@"learned"];
-    
-    self.skipTutorial.hidden = YES;
-    self.welcomeLabel.hidden = NO;
-    self.maleButton.hidden = NO;
-    self.femaleButton.hidden = NO;
-}
-
 - (IBAction)tutorial:(id)sender {
     
     // Create page view controller
@@ -73,6 +60,21 @@
     
     self.skipTutorial.hidden = NO;
 }
+
+- (IBAction)skipTutorial:(id)sender {
+    
+    [self.pageViewController.view removeFromSuperview];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setBool:YES forKey:@"learned"];
+    
+    self.skipTutorial.hidden = YES;
+    self.welcomeLabel.hidden = NO;
+    self.maleButton.hidden = NO;
+    self.femaleButton.hidden = NO;
+}
+
+
 
 #pragma mark - Lifecycle
 
@@ -146,10 +148,7 @@
         self.welcomeLabel.hidden = YES;
         self.maleButton.hidden = YES;
         self.femaleButton.hidden = YES;
-        NSLog(@"Page controller is visible");
     }
-    
-   
 }
 
 #pragma mark - PageView Controller Data Source
@@ -184,14 +183,10 @@
     if (([self.pageTitles count] == 0) || (index >= [self.pageTitles count])) {
         return nil;
     }
-    
 
-    
     // Create a new view controller and pass suitable data.
     PageContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageContentViewController"];
-    
-    
-    
+
     //pageContentViewController.imageFile = self.pageImages[index];
     pageContentViewController.titleText = self.pageTitles[index];
     pageContentViewController.instructionText = self.pageInstructions[index];
